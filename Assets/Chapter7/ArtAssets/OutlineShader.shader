@@ -65,23 +65,21 @@
                 uv[2] = i.uv + float2(-dw, dh);
                 uv[3] = i.uv + float2(dw, -dh);
 
-                float depthSamples[4];
-                float3 normalSamples[4], colorSamples[4];
+                float depthNear[4];
+                float3 normalNear[4];
                 float t = 0;
                 for(int i = 0; i < 4 ; i++)
                 {
-                    depthSamples[i] = tex2D(_CameraDepthTexture, uv[i]).r;
-                    DecodeDepthNormal(tex2D(_CameraDepthNormalsTexture, uv[i]), t, normalSamples[i]);
+                    DecodeDepthNormal(tex2D(_CameraDepthNormalsTexture, uv[i]), depthNear[i], normalNear[i]);
                 }
 
-                // Depth
-                float depthFiniteDifference0 = depthSamples[1] - depthSamples[0];
-                float depthFiniteDifference1 = depthSamples[3] - depthSamples[2];
-                float edgeDepth = sqrt(pow(depthFiniteDifference0, 2) + pow(depthFiniteDifference1, 2)) * 100;
+                float depthFiniteDifference0 = saturate(depthNear[1] - depthNear[0]);
+                float depthFiniteDifference1 = saturate(depthNear[3] - depthNear[2]);
+                //float edgeDepth = sqrt(pow(depthFiniteDifference0, 2) + pow(depthFiniteDifference1, 2)) * 100;
+                float edgeDepth = depthFiniteDifference0 + depthFiniteDifference1;
 
-                // Normals
-                float3 normalFiniteDifference0 = normalSamples[1] - normalSamples[0];
-                float3 normalFiniteDifference1 = normalSamples[3] - normalSamples[2];
+                float3 normalFiniteDifference0 = normalNear[1] - normalNear[0];
+                float3 normalFiniteDifference1 = normalNear[3] - normalNear[2];
                 float edgeNormal = sqrt(dot(normalFiniteDifference0, normalFiniteDifference0) + dot(normalFiniteDifference1, normalFiniteDifference1));
 
                 float edge = max(edgeDepth, edgeNormal);
