@@ -42,7 +42,7 @@ namespace Chapter2
                 cmd.Clear();
 
                 var cam = renderingData.cameraData.camera;
-                var sortFlags = renderingData.cameraData.defaultOpaqueSortFlags;
+                var sortFlags = SortingCriteria.BackToFront;
                 var drawSettings = CreateDrawingSettings(shaderTagIdList, ref renderingData, sortFlags);
 
                 context.DrawRenderers(renderingData.cullResults, ref drawSettings, ref filteringSettings);
