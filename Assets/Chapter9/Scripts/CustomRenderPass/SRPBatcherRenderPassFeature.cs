@@ -3,17 +3,17 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Rendering.Universal;
 
-namespace Chapter1
+namespace Chapter9
 {
-    public class ObjectRenderPassFeature : ScriptableRendererFeature
+    public class SRPBatcherRenderPassFeature : ScriptableRendererFeature
     {
-        private ObjectRenderPass currentPass;
+        private SRPBatcherRenderPass currentPass;
 
         public override void Create()
         {
             if (currentPass == null)
             {
-                currentPass = new ObjectRenderPass();
+                currentPass = new SRPBatcherRenderPass();
             }
         }
 

@@ -4,24 +4,22 @@ using UnityEngine;
 using UnityEngine.Rendering;
 using UnityEngine.Rendering.Universal;
 
-namespace Chapter1
+namespace Chapter9
 {
-    public class ObjectRenderPass : ScriptableRenderPass
+    public class SRPBatcherRenderPass : ScriptableRenderPass
     {
-        private const string Tag = "ObjectRenderPass";
+        private const string Tag = "SRPBatcherRenderPass";
         private RenderTargetIdentifier currentTarget;
-        private List<ShaderTagId> shaderTagIdList = new List<ShaderTagId>();
+        private ShaderTagId pass1 = new ShaderTagId("Pass1");
+        private ShaderTagId pass2 = new ShaderTagId("Pass2");
         private FilteringSettings filteringSettings;
         private ProfilingSampler profilingSampler;
 
-        public ObjectRenderPass()
+        public SRPBatcherRenderPass()
         {
             profilingSampler = new ProfilingSampler(Tag);
             renderPassEvent = RenderPassEvent.BeforeRenderingOpaques;
-            shaderTagIdList.Add(new ShaderTagId("UniversalForward"));
-            shaderTagIdList.Add(new ShaderTagId("LightweightForward"));
-            shaderTagIdList.Add(new ShaderTagId("SRPDefaultUnlit"));
-            filteringSettings = new FilteringSettings(RenderQueueRange.opaque, 1 << LayerMask.NameToLayer("Object"));
+            filteringSettings = new FilteringSettings(RenderQueueRange.opaque);
         }
 
         public void SetRenderTarget(RenderTargetIdentifier target)
@@ -38,8 +36,10 @@ namespace Chapter1
                 cmd.Clear();
                 var cam = renderingData.cameraData.camera;
                 var sortFlags = renderingData.cameraData.defaultOpaqueSortFlags;
-                var drawSettings = CreateDrawingSettings(shaderTagIdList, ref renderingData, sortFlags);
+                var drawSettings = CreateDrawingSettings(pass1, ref renderingData, sortFlags);
+                context.DrawRenderers(renderingData.cullResults, ref drawSettings, ref filteringSettings);
 
+                drawSettings = CreateDrawingSettings(pass2, ref renderingData, sortFlags);
                 context.DrawRenderers(renderingData.cullResults, ref drawSettings, ref filteringSettings);
             }
             context.ExecuteCommandBuffer(cmd);
