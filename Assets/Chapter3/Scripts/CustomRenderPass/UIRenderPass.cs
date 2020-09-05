@@ -17,7 +17,7 @@ namespace Chapter3
         public UIRenderPass()
         {
             profilingSampler = new ProfilingSampler(Tag);
-            renderPassEvent = RenderPassEvent.AfterRendering + 10;
+            renderPassEvent = RenderPassEvent.AfterRendering + 1;
             shaderTagIdList.Add(new ShaderTagId("UniversalForward"));
             shaderTagIdList.Add(new ShaderTagId("LightweightForward"));
             shaderTagIdList.Add(new ShaderTagId("SRPDefaultUnlit"));

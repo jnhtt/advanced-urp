@@ -16,9 +16,7 @@ namespace Chapter4
 
 		public FinalImageGrabRenderPass()
 		{
-			renderPassEvent = renderPassEvent = RenderPassEvent.AfterRendering + 2;
-			FinalImageGrabRenderPassFeature.finalImageRenderTexture = new RenderTexture(1920, 1080, 0, RenderTextureFormat.Default);
-			FinalImageGrabRenderPassFeature.finalImageRenderTexture.name = "FinalImage";
+			renderPassEvent = RenderPassEvent.AfterRendering + 2;
 			finalImageRenderTargetIdentifier = new RenderTargetIdentifier(FinalImageGrabRenderPassFeature.finalImageRenderTexture);
 			Debug.Log("finalImageRenderTargetIdentifier=" + finalImageRenderTargetIdentifier);
 
@@ -41,9 +39,9 @@ namespace Chapter4
 				context.ExecuteCommandBuffer(cmd);
 				cmd.Clear();
 
-                RenderTargetIdentifier prev = BuiltinRenderTextureType.CameraTarget;
-				cmd.Blit(BuiltinRenderTextureType.CameraTarget, finalImageRenderTargetIdentifier);
-				cmd.SetRenderTarget(prev);
+				ref CameraData cameraData = ref renderingData.cameraData;
+				var cameraTarget = (cameraData.targetTexture != null) ? new RenderTargetIdentifier(cameraData.targetTexture) : BuiltinRenderTextureType.CameraTarget;
+				cmd.Blit(cameraTarget, finalImageRenderTargetIdentifier);
 			}
 			context.ExecuteCommandBuffer(cmd);
 			CommandBufferPool.Release(cmd);

@@ -101,9 +101,9 @@ Shader "Custom/DepthNormalsDiplay"
                 float3 normal;
                 float depth;
                 DecodeDepthNormal(depthnormal, depth, normal);
-                return float4(normal, 1);
+                //return float4(normal, 1);
                 // 見えやすくするためにちょっとだけ操作.
-                //return float4(5 * depth, 5 * depth, 5 * depth, 1);
+                return float4(5 * depth, 5 * depth, 5 * depth, 1);
             }
         ENDCG
         }

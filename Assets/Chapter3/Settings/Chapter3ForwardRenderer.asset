@@ -1,18 +1,5 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &-4305892165696325926
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 04c1bc6779ac24316af033ac23403573, type: 3}
-  m_Name: NewObjectRenderPassFeature
-  m_EditorClassIdentifier: 
-  m_Active: 1
 --- !u!114 &-3244150232753755170
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -24,6 +11,19 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 38109663a4f504dc28551d915de9d2b1, type: 3}
   m_Name: NewUIEffectRenderPassFeature
+  m_EditorClassIdentifier: 
+  m_Active: 1
+--- !u!114 &-2693578331012230275
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 93e69207087bd4516b9857398689f9ba, type: 3}
+  m_Name: NewUIRenderPassFeature
   m_EditorClassIdentifier: 
   m_Active: 1
 --- !u!114 &11400000
@@ -40,9 +40,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_RendererFeatures:
   - {fileID: 6846025833827073916}
-  - {fileID: -4305892165696325926}
   - {fileID: -3244150232753755170}
-  m_RendererFeatureMap: 7cff685c39f8015fda76888ee3653ec4de2bb6328d76fad2
+  - {fileID: -2693578331012230275}
+  m_RendererFeatureMap: 7cff685c39f8015fde2bb6328d76fad27d935375c77c9eda
   postProcessData: {fileID: 11400000, guid: 41439944d30ece34e96484bdb6645b55, type: 2}
   shaders:
     blitPS: {fileID: 4800000, guid: c17132b1f77d20942aa75f8429c0f8bc, type: 3}
@@ -53,10 +53,10 @@ MonoBehaviour:
     fallbackErrorPS: {fileID: 4800000, guid: e6e9a19c3678ded42a3bc431ebef7dbd, type: 3}
   m_OpaqueLayerMask:
     serializedVersion: 2
-    m_Bits: 23
+    m_Bits: 535
   m_TransparentLayerMask:
     serializedVersion: 2
-    m_Bits: 1079
+    m_Bits: 23
   m_DefaultStencilState:
     overrideStencilState: 0
     stencilReference: 0

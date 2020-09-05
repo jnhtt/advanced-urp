@@ -34,6 +34,9 @@ namespace Chapter4
         {
             if (currentPass == null)
             {
+                finalImageRenderTexture = new RenderTexture(1920, 1080, 0, RenderTextureFormat.Default);
+                finalImageRenderTexture.name = "FinalImage";
+
                 currentPass = new FinalImageGrabRenderPass();
             }
         }

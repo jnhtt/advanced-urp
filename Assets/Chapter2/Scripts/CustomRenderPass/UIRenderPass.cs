@@ -17,7 +17,7 @@ namespace Chapter2
         public UIRenderPass()
         {
             profilingSampler = new ProfilingSampler(Tag);
-            renderPassEvent = RenderPassEvent.AfterRendering + 10;
+            renderPassEvent = RenderPassEvent.AfterRendering + 1;
             shaderTagIdList.Add(new ShaderTagId("UniversalForward"));
             shaderTagIdList.Add(new ShaderTagId("LightweightForward"));
             shaderTagIdList.Add(new ShaderTagId("SRPDefaultUnlit"));
@@ -42,7 +42,7 @@ namespace Chapter2
                 cmd.Clear();
 
                 var cam = renderingData.cameraData.camera;
-                var sortFlags = SortingCriteria.BackToFront;
+                var sortFlags = SortingCriteria.SortingLayer;
                 var drawSettings = CreateDrawingSettings(shaderTagIdList, ref renderingData, sortFlags);
 
                 context.DrawRenderers(renderingData.cullResults, ref drawSettings, ref filteringSettings);
