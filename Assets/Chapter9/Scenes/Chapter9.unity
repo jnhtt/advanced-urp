@@ -134,7 +134,7 @@ GameObject:
   - component: {fileID: 92008107}
   - component: {fileID: 92008106}
   m_Layer: 0
-  m_Name: Cube (3)
+  m_Name: NotCube (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -185,7 +185,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: ecc7d9cd23b7e49db94313999cc82bea, type: 2}
+  - {fileID: 2100000, guid: ef575d90400284f9f9cfeb192f21b5d0, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -368,7 +368,7 @@ GameObject:
   - component: {fileID: 1270020456}
   - component: {fileID: 1270020455}
   m_Layer: 0
-  m_Name: Cube (4)
+  m_Name: NotCube (4)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -419,7 +419,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: ecc7d9cd23b7e49db94313999cc82bea, type: 2}
+  - {fileID: 2100000, guid: ef575d90400284f9f9cfeb192f21b5d0, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

@@ -1,4 +1,4 @@
-﻿Shader "Custom/MultiPassSRPBatcher"
+﻿Shader "Custom/NotCompatibleMultiPassSRPBatcher"
 {
     Properties
     {
@@ -37,12 +37,12 @@
             TEXTURE2D(_MainTex);
             SAMPLER(sampler_MainTex);
 
-            CBUFFER_START(UnityPerMaterial)
+            //CBUFFER_START(UnityPerMaterial)
             float4 _MainTex_ST;
             half4 _Color;
             half _OutlineWidth;
             half4 _OutlineColor;
-            CBUFFER_END
+            //CBUFFER_END
 
             float DistanceToCamera(float3 pos)
             {
@@ -90,7 +90,7 @@
                 UNITY_SETUP_STEREO_EYE_INDEX_POST_VERTEX(input);
 
                 half2 uv = input.uv;
-                half4 texColor = SAMPLE_TEXTURE2D(_MainTex, sampler_MainTex, uv) * _Color;
+                half4 texColor = SAMPLE_TEXTURE2D(_MainTex, sampler_MainTex, uv);
                 half3 color = texColor.rgb * _OutlineColor;
                 half alpha = texColor.a;
 
@@ -124,12 +124,12 @@
             TEXTURE2D(_MainTex);
             SAMPLER(sampler_MainTex);
 
-            CBUFFER_START(UnityPerMaterial)
+            //CBUFFER_START(UnityPerMaterial)
             float4 _MainTex_ST;
             half4 _Color;
             half _OutlineWidth;
             half4 _OutlineColor;
-            CBUFFER_END
+            //CBUFFER_END
 
             struct Attributes
             {
