@@ -15,7 +15,7 @@ This repository is samples of book about Universal Render Pipeline for advanced 
 ## chapters of book
 
 |chapter|Description| 説明 |
-|---|---|
+|:---:|:---:|:---:|
 |Chapter1| Custom Pipeline for rendering order | 専用描画パスの追加 |
 |Chapter2| UIEffect on UI using URP | URPでUIエフェクトをUIの上に表示 |
 |Chapter3| Capture using URP | URPの描画途中をキャプチャ |
