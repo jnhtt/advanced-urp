@@ -2,8 +2,9 @@
 
 pdf about Universal Render Pipeline for advanced TIPS is available from below
 <br>pdfを下記で頒布中。
-
+技術書典
 https://techbookfest.org/product/5752788585807872
+BOOTH
 https://smartphone-games.booth.pm/items/2372771
 
 # urp
