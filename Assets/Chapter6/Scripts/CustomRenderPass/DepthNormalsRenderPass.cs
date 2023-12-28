@@ -55,7 +55,7 @@ namespace Chapter6
 
                 ref CameraData cameraData = ref renderingData.cameraData;
                 Camera cam = cameraData.camera;
-                if (cameraData.isStereoEnabled)
+                if (XRGraphics.enabled)
                 {
                     context.StartMultiEye(cam);
                 }

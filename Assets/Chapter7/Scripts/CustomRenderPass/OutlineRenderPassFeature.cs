@@ -19,8 +19,13 @@ namespace Chapter7
 
         public override void AddRenderPasses(ScriptableRenderer renderer, ref RenderingData renderingData)
         {
-            currentPass.SetRenderTarget(renderer.cameraColorTarget);
             renderer.EnqueuePass(currentPass);
+        }
+
+        public override void SetupRenderPasses(ScriptableRenderer renderer, in RenderingData renderingData)
+        {
+            base.SetupRenderPasses(renderer, renderingData);
+            currentPass.SetRenderTarget(renderer.cameraColorTargetHandle);
         }
     }
 }
